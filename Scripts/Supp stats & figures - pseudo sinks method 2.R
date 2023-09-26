@@ -81,11 +81,11 @@ mdd2.1b <- glmmTMB(ME ~ ab_cat_shared*green_index_scaled +
                     (1 | site) + (1| grid:site), 
                   data = filter(dd_temp1, species %in% "brohor"),
                   family = binomial())
-mdd2.2b <- glmmTMB(ME ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shared + 
-                    (1 | site) + (1| grid:site),
-                  data =  filter(dd_temp1, species %in% "brohor"),
-                  family = binomial())
-AIC(mdd2.1b)
+# mdd2.2b <- glmmTMB(ME ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shared + 
+#                     (1 | site) + (1| grid:site),
+#                   data =  filter(dd_temp1, species %in% "brohor"),
+#                   family = binomial())
+# AIC(mdd2.1b)
 # df      AIC
 # mdd2.1b 10 153.3375
 # mdd2.2b 14       NA
@@ -169,10 +169,10 @@ Anova(mdd2.2m)
 ################################################################################
 # Plantago
 
-mdd2.1p <- glmmTMB(ME ~ ab_cat_shared*green_index_scaled + 
-                     (1 | site), #+ (1| grid:site), 
-                   data = filter(dd_temp1, species %in% "plaere"),
-                   family = binomial())
+# mdd2.1p <- glmmTMB(ME ~ ab_cat_shared*green_index_scaled + 
+#                      (1 | site), #+ (1| grid:site), 
+#                    data = filter(dd_temp1, species %in% "plaere"),
+#                    family = binomial())
 mdd2.2p <- glmmTMB(ME ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shared + 
                      (1 | site), #+ (1| grid:site),
                    data =  filter(dd_temp1, species %in% "plaere"),

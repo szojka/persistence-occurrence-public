@@ -69,7 +69,7 @@ mddp.4 <- glmmTMB(seed_half ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shar
                   data = filter(temp_dat, species %in% c("plaere")),
                   family = poisson(link="log"))
 
-AIC(mddp.1,mddp.2,mddp.3,mddp.4)
+#AIC(mddp.1,mddp.2,mddp.3,mddp.4)
 # df      AIC
 # mddp.1 11 905.2504
 # mddp.2 15 912.1818
@@ -180,23 +180,23 @@ mddm.1 <- glmmTMB(seed_half ~ ab_cat_shared*green_index_scaled +
                   data = filter(temp_dat, species %in% c("miccal")),
                   ziformula = ~1,
                   family = poisson(link="log")) 
-mddm.2 <- glmmTMB(seed_half ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shared + 
-                    (1 | site) + (1| grid:site), 
-                  data = filter(temp_dat, species %in% c("miccal")),
-                  ziformula = ~1,
-                  family = poisson(link="log"))
-mddm.3 <- glmmTMB(seed_half ~ ab_cat_shared*green_index_scaled + 
-                    (1 | site) + (1| grid:site), 
-                  ziformula = ~.,
-                  data = filter(temp_dat, species %in% c("miccal")),
-                  family = poisson(link="log")) 
-mddm.4 <- glmmTMB(seed_half ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shared + 
-                    (1 | site) + (1| grid:site), 
-                  ziformula = ~.,
-                  data = filter(temp_dat, species %in% c("miccal")),
-                  family = poisson(link="log"))
+# mddm.2 <- glmmTMB(seed_half ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shared + 
+#                     (1 | site) + (1| grid:site), 
+#                   data = filter(temp_dat, species %in% c("miccal")),
+#                   ziformula = ~1,
+#                   family = poisson(link="log"))
+# mddm.3 <- glmmTMB(seed_half ~ ab_cat_shared*green_index_scaled + 
+#                     (1 | site) + (1| grid:site), 
+#                   ziformula = ~.,
+#                   data = filter(temp_dat, species %in% c("miccal")),
+#                   family = poisson(link="log")) 
+# mddm.4 <- glmmTMB(seed_half ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shared + 
+#                     (1 | site) + (1| grid:site), 
+#                   ziformula = ~.,
+#                   data = filter(temp_dat, species %in% c("miccal")),
+#                   family = poisson(link="log"))
 
-AIC(mddm.1,mddm.2,mddm.3,mddm.4)
+#AIC(mddm.1,mddm.2,mddm.3,mddm.4)
 # df      AIC
 # mddm.1 11 119.4972 # linear w. zi intercept
 # mddm.2  9       NA
@@ -303,18 +303,18 @@ mddb.2 <- glmmTMB(seed_half ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shar
                   data = filter(temp_dat, species %in% c("brohor")),
                   ziformula = ~1,
                   family = poisson(link="log"))
-mddb.3 <- glmmTMB(seed_half ~ ab_cat_shared*green_index_scaled + # doesn't run - infinite values
-                    (1 | site),# + (1| grid:site), 
-                  ziformula = ~.,
-                  data = filter(temp_dat, species %in% c("brohor")),
-                  family = poisson(link="log")) 
-mddb.4 <- glmmTMB(seed_half ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shared + 
-                    (1 | site),# + (1| grid:site), 
-                  ziformula = ~.,
-                  data = filter(temp_dat, species %in% c("brohor")),
-                  family = poisson(link="log"))
+# mddb.3 <- glmmTMB(seed_half ~ ab_cat_shared*green_index_scaled + # doesn't run - infinite values
+#                     (1 | site),# + (1| grid:site), 
+#                   ziformula = ~.,
+#                   data = filter(temp_dat, species %in% c("brohor")),
+#                   family = poisson(link="log")) 
+# mddb.4 <- glmmTMB(seed_half ~ poly(green_index_scaled,2, raw = TRUE)*ab_cat_shared + 
+#                     (1 | site),# + (1| grid:site), 
+#                   ziformula = ~.,
+#                   data = filter(temp_dat, species %in% c("brohor")),
+#                   family = poisson(link="log"))
 
-AIC(mddb.1,mddb.2,mddb.3,mddb.4)
+#AIC(mddb.1,mddb.2,mddb.3,mddb.4)
 # df      AIC
 # mddb.1 10 554.5423 # linear w. zi as intercept
 # mddb.2 14 560.4602
@@ -430,7 +430,7 @@ mddv.4 <- glmmTMB(seed_half ~ poly(green_index_scaled,2, raw = TRUE) + ab_cat_sh
                   data = filter(temp_dat, species %in% c("vulmic")),
                   family = poisson(link="log"))
 
-AIC(mddv.1,mddv.2,mddv.3, mddv.4)
+#AIC(mddv.1,mddv.2,mddv.3, mddv.4)
 # df      AIC
 # mddv.1  8 899.4781 # linear w. zi as intercept
 # mddv.2  9 899.6512
