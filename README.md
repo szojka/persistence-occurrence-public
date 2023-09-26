@@ -75,7 +75,7 @@ Supplemental data that estimates percent cover of all vegetation for each plot. 
 
 # SUPPORTING INFORMATION AND CONTACT:
 
-1. doi to manuscipt: XX
+1. code DOI: 10.5281/zenodo.8381381
 
 2. contact author Megan Szojka mszojka@uwyo.edu with any concerns or questions.
 
