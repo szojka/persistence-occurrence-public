@@ -478,7 +478,7 @@ x <- ggplot() +
   theme(legend.title = element_blank(),
         legend.position = c(0.49,0.7),
         text = element_text(size = 16)) + 
-  labs(y = "Population growth", x = "") +
+  labs(y = "Population growth rate", x = "") +
   geom_hline(yintercept = 1,
              linetype = "dashed",
              color = "black") +

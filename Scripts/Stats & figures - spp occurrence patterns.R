@@ -121,7 +121,7 @@ e <- ggplot() +
   theme_classic() +
   theme(legend.title = element_blank(),
         text = element_text(size = 16)) +
-  labs(y = "Occurrence", x = "Vegetation index (G-R)") +
+  labs(y = "Probability of occurrence", x = "Vegetation index (G-R)") +
   ylim(0, 1)+ 
   annotate("text", x = -4, y = 1, label = "E", size = 7)
 e
