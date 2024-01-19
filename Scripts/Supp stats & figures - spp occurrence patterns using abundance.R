@@ -753,15 +753,15 @@ h
 ############################
 
 pdf("Figures/supp_occ_w_abundance.pdf",
-    width = 12,
-    height = 6)
+    width = 13,
+    height = 5)
 (a + b + c + d + plot_layout(ncol = 4))
 dev.off()
 
 
 png("Figures/supp_occ_w_abundance.png",
-    width = 12,
-    height = 6,
+    width = 13,
+    height = 5,
     units = "in",
     res = 600)
 (a + b + c + d + plot_layout(ncol = 4))
