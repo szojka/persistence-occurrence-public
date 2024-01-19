@@ -167,8 +167,9 @@ a <- ggplot() +
   theme_classic() +
   theme(legend.title = element_blank(),
         text = element_text(size = 16)) +
-  labs(y = "Predicted abundance", x = "") +
+  labs(y = "Predicted abundance", x = "Vegetation index (G-R)") +
   ylim(0, 3) + 
+  scale_y_continuous(breaks = c(0,1,2,3), labels =c("0","1-10","11-100",">101") ) + 
   ggtitle("Plantago") +
   annotate("text", x = -4, y = 3, label = "A", size = 7)
 a
@@ -342,8 +343,9 @@ b <- ggplot() +
   theme_classic() +
   theme(legend.title = element_blank(),
         text = element_text(size = 16)) +
-  labs(y = "", x = "") +
+  labs(y = "", x = "Vegetation index (G-R)") +
   ylim(0, 3) + 
+  scale_y_continuous(breaks = c(0,1,2,3), labels =c("0","1-10","11-100",">101") ) + 
   ggtitle("Micropus") +
   annotate("text", x = -4, y = 3, label = "B", size = 7)
 b
@@ -523,8 +525,9 @@ c <- ggplot() +
   theme_classic() +
   theme(legend.title = element_blank(),
         text = element_text(size = 16)) +
-  labs(y = "", x = "") +
+  labs(y = "", x = "Vegetation index (G-R)") +
   ylim(0, 3) + 
+  scale_y_continuous(breaks = c(0,1,2,3), labels =c("0","1-10","11-100",">101") ) + 
   ggtitle("Bromus") +
   annotate("text", x = -4, y = 3, label = "C", size = 7)
 c
@@ -706,8 +709,9 @@ d <- ggplot() +
   theme_classic() +
   theme(legend.title = element_blank(),
         text = element_text(size = 16)) +
-  labs(y = "", x = "") +
+  labs(y = "", x = "Vegetation index (G-R)") +
   ylim(0, 3) + 
+  scale_y_continuous(breaks = c(0,1,2,3), labels =c("0","1-10","11-100",">101") ) + 
   ggtitle("Festuca") +
   annotate("text", x = -4, y = 3, label = "D", size = 7)
 d
@@ -751,7 +755,7 @@ h
 pdf("Figures/supp_occ_w_abundance.pdf",
     width = 12,
     height = 6)
-(a + b + c + d + e + f + j + h + plot_layout(ncol = 4))
+(a + b + c + d + plot_layout(ncol = 4))
 dev.off()
 
 
@@ -760,7 +764,7 @@ png("Figures/supp_occ_w_abundance.png",
     height = 6,
     units = "in",
     res = 600)
-(a + b + c + d + e + f + j + h + plot_layout(ncol = 4))
+(a + b + c + d + plot_layout(ncol = 4))
 dev.off()
 
 
