@@ -318,9 +318,10 @@ b <-
   ) +
   theme_classic() + # should always be above other themes
   theme(legend.title = element_blank(),
-        legend.position = c(0.4,0.85),
+        legend.position = c(0.3,0.87),
         text = element_text(size = 16)) + 
   labs(y = "Proportion of species", x = "Vegetation index (G-R)") 
+b
 
 #-------------------------------
 
