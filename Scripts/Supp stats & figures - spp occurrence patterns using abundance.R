@@ -57,6 +57,17 @@ source("Scripts/Source fitness data.R")
    summarize(abundance_name = n()) 
 # (1317+1312)/(1317+1312+256+46) = 0.8969635
  
+ # ...in specifically productive habitat:
+ green_all_supp %>%
+   select(green_cat, species, block, ab_cat_shared) %>%
+   group_by(green_cat) %>%
+   mutate(total_n = n()) %>%
+   group_by(ab_cat_shared, green_cat) %>%
+   mutate(abundance_prop = n()/total_n) %>%
+   select(green_cat, ab_cat_shared, abundance_prop) %>%
+   distinct()
+ #0.528 + 0.320 = 0.848 in 'prod' (vegetation index = 0.49-2.05)
+ 
  #--------------------------------------------------------------------
  # PLANTAGO ####
  #--------------------------------------------------------------------
@@ -201,7 +212,7 @@ a <- ggplot() +
   theme_classic() +
   theme(legend.title = element_blank(),
         text = element_text(size = 16)) +
-  labs(y = "Predicted abundance", x = "Vegetation index (G-R)") +
+  labs(y = "Abundance", x = "Vegetation index (G-R)") +
   ylim(0, 3) + 
   scale_y_continuous(breaks = c(0,1,2,3), labels =c("0","1-10","11-100",">101") ) + 
   ggtitle("Plantago") +
