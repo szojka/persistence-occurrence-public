@@ -26,39 +26,43 @@ source("Scripts/Source fitness data.R")
  # calculate how often each species and block ends up in each abundance category
  
  green_all_supp %>%
+   filter(treatment %in% 'B') %>%
    select(species, block, ab_cat_shared) %>%
    group_by(species) %>%
    summarize(abundance_total = n())
- # 1 brohor              708
- # 2 miccal              740
- # 3 plaere              724
- # 4 vulmic              759
+ # 1 brohor              376
+ # 2 miccal              401
+ # 3 plaere              390
+ # 4 vulmic              395
  
  green_all_supp %>%
+   filter(treatment %in% 'B') %>%
    select(species, block, ab_cat_shared) %>%
    group_by(species, ab_cat_shared) %>%
    summarize(abundance_name = n())
-# brohor              0            428
-# brohor              1            167
-#  (428+167)/708 = 0.8403955
-# miccal              0            269
-# miccal              1            410
-#  (269+410)/740 = 0.9175676
-# plaere              0            345
-# plaere              1            295
-#  (345+295)/724 = 0.8839779
-# vulmic              0            275
-# vulmic              1            440
-# (275+440)/759 = 0.942029
+# brohor              0            211
+# brohor              1            80
+#  (211+80)/376 = 0.7739362
+# miccal              0            149
+# miccal              1            215
+#  (149+215)/401 = 0.9077307
+# plaere              0            185
+# plaere              1            158
+#  (185+158)/390 = 0.8794872
+# vulmic              0            146
+# vulmic              1            226
+# (146+226)/395 = 0.9417722
 
  green_all_supp %>%
+   filter(treatment %in% 'B') %>%
    select(species, block, ab_cat_shared) %>%
    group_by(ab_cat_shared) %>%
    summarize(abundance_name = n()) 
-# (1317+1312)/(1317+1312+256+46) = 0.8969635
+# (691+679)/(691+679+156+36) = 0.8770807
  
  # ...in specifically productive habitat:
  green_all_supp %>%
+   filter(treatment %in% 'B') %>%
    select(green_cat, species, block, ab_cat_shared) %>%
    group_by(green_cat) %>%
    mutate(total_n = n()) %>%
@@ -66,7 +70,7 @@ source("Scripts/Source fitness data.R")
    mutate(abundance_prop = n()/total_n) %>%
    select(green_cat, ab_cat_shared, abundance_prop) %>%
    distinct()
- #0.528 + 0.320 = 0.848 in 'prod' (vegetation index = 0.49-2.05)
+ #0.506  + 0.320  = 0.826 in 'prod' (vegetation index = 0.49-2.05)
  
  #--------------------------------------------------------------------
  # PLANTAGO ####
