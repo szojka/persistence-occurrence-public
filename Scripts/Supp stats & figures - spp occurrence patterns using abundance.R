@@ -23,6 +23,40 @@ source("Scripts/Source fitness data.R")
 # first change ab_cat_shared from 0-3 to 0->101
  green_all_supp <- green_all
  
+ # calculate how often each species and block ends up in each abundance category
+ 
+ green_all_supp %>%
+   select(species, block, ab_cat_shared) %>%
+   group_by(species) %>%
+   summarize(abundance_total = n())
+ # 1 brohor              708
+ # 2 miccal              740
+ # 3 plaere              724
+ # 4 vulmic              759
+ 
+ green_all_supp %>%
+   select(species, block, ab_cat_shared) %>%
+   group_by(species, ab_cat_shared) %>%
+   summarize(abundance_name = n())
+# brohor              0            428
+# brohor              1            167
+#  (428+167)/708 = 0.8403955
+# miccal              0            269
+# miccal              1            410
+#  (269+410)/740 = 0.9175676
+# plaere              0            345
+# plaere              1            295
+#  (345+295)/724 = 0.8839779
+# vulmic              0            275
+# vulmic              1            440
+# (275+440)/759 = 0.942029
+
+ green_all_supp %>%
+   select(species, block, ab_cat_shared) %>%
+   group_by(ab_cat_shared) %>%
+   summarize(abundance_name = n()) 
+# (1317+1312)/(1317+1312+256+46) = 0.8969635
+ 
  #--------------------------------------------------------------------
  # PLANTAGO ####
  #--------------------------------------------------------------------
