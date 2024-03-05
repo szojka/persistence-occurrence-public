@@ -79,6 +79,8 @@ Supplemental data that estimates percent cover of all vegetation for each plot. 
 
 2. contact author Megan Szojka mszojka@uwyo.edu with any concerns or questions.
 
+3. for use of these data in other projects, the authors request that you please let us know, as there are other ongoing projects with these data.
+
 ##################################################################
 
 
