@@ -200,165 +200,139 @@ pairs(em)
 
 vis_prod <- ggpredict(m2, 
                       terms = c("green_index_scaled[all]", "type"), 
-                      type = "fe", allow.new.levels=TRUE); plot(vis_prod)
+                      type = "fe"); plot(vis_prod)
 
-length(vis_prod$x) # 1152/3 = 384
-colortreatpred <- c(rep("tan4", times = 384), rep("maroon4", times = 384), rep("turquoise1", times = 384))
 
-# all lines together:
-ggplot() +
+colors <- c("Persistence without neighbors" = "maroon4",
+            "Persistence with neighbors" = "turquoise1",
+            "Occurrence" = "tan4")
+
+
+facetA <- ggplot() +
+  # PERSISTECE WITH NEIGHBORS
   geom_jitter(
-    data = fig_dat_fin,
-    aes(x = green_index_scaled, y = species_prop, color = type),
-    alpha = 0.3,
+    data = filter(fig_dat_fin, type %in% c('PB')),
+    aes(x = green_index_scaled, y = species_prop, color = "Persistence with neighbors"),
+    alpha = 0.2,
     width = 0.01,
-    height = 0.1,
-    size = 1.5,
-  #  color = colortreatraw
+    height = 0.05,
+    size = 1.5
   )  +
-  scale_color_manual(values =c("tan4","maroon4","turquoise1"), 
-                     labels = c("Occurrence","Persistence without neighbors", "Persistence with neighbors")) + # up here so that it only deals with this layer
-  geom_line(data = vis_prod, aes(x = x, y = predicted, group = group, color = group),
-           # color = colortreatpred,
+  geom_line(data = filter(vis_prod, group %in% c('PB')), aes(x = x, y = predicted, group = group, color = "Persistence with neighbors"),
             linewidth = 1
   ) +
-  geom_ribbon(data = vis_prod, aes(
-      x = x,
-      y = predicted,
-      group=group,
-      ymin = conf.low,
-      ymax = conf.high),
-    alpha = 0.2,
-    show.legend = F,
-    fill = colortreatpred
-  ) +
-  theme_classic() + # should always be above other themes
-  theme(legend.title = element_blank(),
-        legend.position = c(0.2,0.85)) + 
-  labs(y = "Proportion of species", x = "Vegetation index (G-R)") 
-
-######################################
-# separate three lines into two panels:
-######################################
-
-temp <- filter(vis_prod, group %in% c('OB', "PB"))
-length(temp$x) # 768/2 = 384
-#colors <- c("tan4","maroon4","springgreen")
-colortreatpred <- c(rep("tan4", times = 384), rep("turquoise1", times = 384))
-
-
-# a = occurrence vs persistence (ob and pb)
-a <- 
-  ggplot() +
+  geom_ribbon(data = filter(vis_prod, group %in% c('PB')), aes(
+    x = x,
+    y = predicted,
+    group=group,
+    ymin = conf.low,
+    ymax = conf.high, fill = "Persistence with neighbors"),
+    alpha = 0.25,
+    show.legend = F ) +
+  # OCCURRENCE
   geom_jitter(
-    data = filter(fig_dat_fin, type %in% c('OB', "PB")),
-    aes(x = green_index_scaled, y = species_prop, color = type),
+    data = filter(fig_dat_fin, type %in% c('OB')),
+    aes(x = green_index_scaled, y = species_prop, color = "Occurrence"),
     alpha = 0.2,
     width = 0.01,
     height = 0.05,
     size = 1.5,
-    #  color = colortreatraw
   )  +
-  scale_color_manual(values =c("tan4","turquoise1"), 
-                     labels = c("Occurrence", "Persistence")) + # up here so that it only deals with this layer
-  geom_line(data = filter(vis_prod, group %in% c('OB', "PB")), aes(x = x, y = predicted, group = group, color = group),
-            # color = colortreatpred,
+  geom_line(data = filter(vis_prod, group %in% c('OB')), aes(x = x, y = predicted, group = group, color = "Occurrence"),
             linewidth = 1
   ) +
-  geom_ribbon(data = filter(vis_prod, group %in% c('OB', "PB")), aes(
+  geom_ribbon(data = filter(vis_prod, group %in% c('OB')), aes(
+    x = x,
+    y = predicted,
+    group=group,
+    ymin = conf.low,
+    ymax = conf.high, fill = "Occurrence"),
+    alpha = 0.25,
+    show.legend = F ) +
+  # AESTHETICS
+  scale_color_manual(values = colors) +
+  scale_fill_manual(values = colors) +
+  theme_classic() + # should always be above other themes
+  theme(legend.title = element_blank(),
+        legend.position = 'top',
+        text = element_text(size = 16)) + 
+  labs(y = "", x = "Vegetation index (G-R)") + 
+  annotate("text", x = -4, y = 1.1, label = "A", size = 7)
+
+facetB <-  ggplot() +
+  # PERSISTECE WITHOUT NEIGHBORS
+  geom_jitter(
+    data = filter(fig_dat_fin, type %in% c('PA')),
+    aes(x = green_index_scaled, y = species_prop, color = "Persistence without neighbors"),
+    alpha = 0.2,
+    width = 0.01,
+    height = 0.05,
+    size = 1.5  )  +
+  geom_line(data = filter(vis_prod, group %in% c('PA')), aes(x = x, y = predicted, group = group, color = "Persistence without neighbors"),
+            linewidth = 1
+  ) +
+  geom_ribbon(data = filter(vis_prod, group %in% c('PA')), aes(
+    x = x,
+    y = predicted,
+    group=group,
+    ymin = conf.low,
+    ymax = conf.high, fill = "Persistence without neighbors"),
+    alpha = 0.25,
+    show.legend = F ) +
+  # PERSISTECE WITH NEIGHBORS
+  geom_jitter(
+    data = filter(fig_dat_fin, type %in% c('PB')),
+    aes(x = green_index_scaled, y = species_prop),
+    alpha = 0.2,
+    width = 0.01,
+    height = 0.05,
+    size = 1.5,
+    show.legend = F, 
+    color = "turquoise1"
+  )  +
+  geom_line(data = filter(vis_prod, group %in% c('PB')), aes(x = x, y = predicted),
+            linewidth = 1,
+            show.legend = F, 
+            color = "turquoise1"
+  ) +
+  geom_ribbon(data = filter(vis_prod, group %in% c('PB')), aes(
     x = x,
     y = predicted,
     group=group,
     ymin = conf.low,
     ymax = conf.high),
     alpha = 0.25,
-    show.legend = F,
-   fill = colortreatpred
-  ) +
+    show.legend = F, 
+    fill = "turquoise1" ) +
+  # AESTHETICS
+  scale_color_manual(values = colors) +
+  scale_fill_manual(values = colors) +
   theme_classic() + # should always be above other themes
   theme(legend.title = element_blank(),
-        legend.position = c(0.2,0.85),
+        legend.position = 'top',
         text = element_text(size = 16)) + 
-  labs(y = "Proportion of species", x = "Vegetation index (G-R)") 
-
-
-# b = persistence aboiotic vs biotic (pa vs pb)
-temp <- filter(vis_prod, group %in% c('PA', "PB"))
-length(temp$x) # 768/2 = 384
-colortreatpred <- c(rep("maroon4", times = 384), rep("turquoise1", times = 384))
-
-
-# b = pa vs pb (comparing persistence in abiotic versus biotic)
-b <- 
-  ggplot() +
-  geom_jitter(
-    data = filter(fig_dat_fin, type %in% c('PA', "PB")),
-    aes(x = green_index_scaled, y = species_prop, color = type),
-    alpha = 0.2,
-    width = 0.01,
-    height = 0.05,
-    size = 1.5,
-    #  color = colortreatraw
-  )  +
-  scale_color_manual(values =c("maroon4","turquoise1"), 
-                     labels = c("Persistence without neighbors", "Persistence with neighbors")) + # up here so that it only deals with this layer
-  geom_line(data = filter(vis_prod, group %in% c('PA', "PB")), aes(x = x, y = predicted, group = group, color = group),
-            # color = colortreatpred,
-            linewidth = 1
-  ) +
-  geom_ribbon(data = filter(vis_prod, group %in% c('PA', "PB")), aes(
-    x = x,
-    y = predicted,
-    group=group,
-    ymin = conf.low,
-    ymax = conf.high),
-    alpha = 0.25,
-    show.legend = F,
-    fill = colortreatpred
-  ) +
-  theme_classic() + # should always be above other themes
-  theme(legend.title = element_blank(),
-        legend.position = c(0.3,0.87),
-        text = element_text(size = 16)) + 
-  labs(y = "Proportion of species", x = "Vegetation index (G-R)") 
-b
+  labs(y = "", x = "Vegetation index (G-R)") + 
+  annotate("text", x = -4, y = 1.1, label = "B", size = 7)
 
 #-------------------------------
 
 pdf(
-  'Figures/fig_persist_vs_occur.pdf',
-  width = 6,
-  height = 4
+  'Figures/fig_persist_both_vs_occur.pdf',
+  width = 9,
+  height = 5
 )
-a
+facetA + facetB + plot_layout(guides = 'collect') & theme(legend.position = 'top')
 dev.off()
 
 png(
-  'Figures/fig_persist_vs_occur.png',
-  width = 6,
-  height = 4,
+  'Figures/fig_persist_both_vs_occur.png',
+  width = 9,
+  height = 5,
   units = 'in',
   res = 600
 )
-a
+facetA + facetB + plot_layout(guides = 'collect') & theme(legend.position = 'top')
 dev.off()
 
 #----------------------------
 
-pdf(
-  'Figures/fig_biotic_interactions.pdf',
-  width = 6,
-  height = 4
-)
-b
-dev.off()
-
-png(
-  'Figures/fig_biotic_interactions.png',
-  width = 6,
-  height = 4,
-  units = 'in',
-  res = 600
-)
-b
-dev.off()

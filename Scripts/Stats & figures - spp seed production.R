@@ -224,16 +224,16 @@ vis_p_all <-
 vis_spp_p <-
   ggpredict(mp,
             terms = c("green_index_scaled[all]", "treatment"),
-            type = "fe.zi", allow.new.levels=TRUE); plot(vis_spp_p)
+            type = "fe.zi"); plot(vis_spp_p)
 
 # add color as column for plotting
 seed_plantago$colortreat <- NA
-seed_plantago$colortreat[seed_plantago$treatment == "A"]<- "steelblue3"
-seed_plantago$colortreat[seed_plantago$treatment == "B"]<- "red4"
+seed_plantago$colortreat[seed_plantago$treatment == "A"]<- "red4"
+seed_plantago$colortreat[seed_plantago$treatment == "B"]<- "steelblue3"
 seed_plantago$colortreat <- as.factor(seed_plantago$colortreat)
 colortreatraw <- c(seed_plantago$colortreat)
 length(vis_spp_p$x) # 710/2 = 355
-colortreatpred <- c(rep("steelblue3", times = 355), rep("red4", times = 355))
+colortreatpred <- c(rep("red4", times = 355), rep("steelblue3", times = 355))
 
 w <- ggplot() +
   geom_jitter(
@@ -270,7 +270,7 @@ w <- ggplot() +
              color = "black") +
   ylim(0, 15) +
   ggtitle("Plantago")+ 
-  annotate("text", x = -4, y = 15, label = "B", size = 7)
+  annotate("text", x = -4.2, y = 15, label = "B", size = 7)
 w
 
 #--------------------------------------------------------------------
@@ -434,16 +434,16 @@ vis_m_all <-
 vis_spp_m <-
   ggpredict(mm,
             terms = c("green_index_scaled[all]", "treatment"),
-            type = "fe.zi", allow.new.levels=TRUE); plot(vis_spp_m)
+            type = "fe.zi" ); plot(vis_spp_m)
 
 # add color as column for plotting
 seed_micropus$colortreat <- NA
-seed_micropus$colortreat[seed_micropus$treatment == "A"]<- "steelblue3"
-  seed_micropus$colortreat[seed_micropus$treatment == "B"]<- "red4"
+seed_micropus$colortreat[seed_micropus$treatment == "A"]<- "red4"
+  seed_micropus$colortreat[seed_micropus$treatment == "B"]<- "steelblue3"
     seed_micropus$colortreat <- as.factor(seed_micropus$colortreat)
     colortreatraw <- c(seed_micropus$colortreat)
    length(vis_spp_m$x)# 744/2
-    colortreatpred <- c(rep("steelblue3", times = 372), rep("red4", times = 372))
+    colortreatpred <- c(rep("red4", times = 372), rep("steelblue3", times = 372))
 
 x <- ggplot() +
       geom_jitter(
@@ -459,7 +459,7 @@ x <- ggplot() +
                 #color = colortreatpred,
                 show.legend = T
       ) +
-  scale_color_manual(values =c("steelblue3","red4"), 
+  scale_color_manual(values =c("red4","steelblue3"), 
                      labels = c("Without neighbors","With neighbors")) +
       geom_ribbon(
         data = vis_spp_m,
@@ -484,7 +484,7 @@ x <- ggplot() +
              color = "black") +
   ylim(0, 15) +
   ggtitle("Micropus") + 
-  annotate("text", x = -4, y = 15, label = "A", size = 7)
+  annotate("text", x = -4.2, y = 15, label = "A", size = 7)
 x 
 
 #--------------------------------------------------------------------
@@ -655,17 +655,17 @@ vis_b_all <-
 vis_spp_b <-
   ggpredict(mb,
             terms = c("green_index_scaled[all]", "treatment"),
-            type = "fe.zi", allow.new.levels=TRUE); plot(vis_spp_b)
+            type = "fe.zi" ); plot(vis_spp_b)
 
 
 # add color as column for plotting
 seed_bromus$colortreat <- NA
-seed_bromus$colortreat[seed_bromus$treatment == "A"]<- "steelblue3"
-  seed_bromus$colortreat[seed_bromus$treatment == "B"]<- "red4"
+seed_bromus$colortreat[seed_bromus$treatment == "A"]<- "red4"
+  seed_bromus$colortreat[seed_bromus$treatment == "B"]<- "steelblue3"
     seed_bromus$colortreat <- as.factor(seed_bromus$colortreat)
     colortreatraw <- c(seed_bromus$colortreat)
     length(vis_spp_b$x)# 700/2 # length of vis_spp_b
-    colortreatpred <- c(rep("steelblue3", times = 351), rep("red4", times = 351))
+    colortreatpred <- c(rep("red4", times = 351), rep("steelblue3", times = 351))
     
 y <- ggplot() +
       geom_jitter(
@@ -701,7 +701,7 @@ y <- ggplot() +
              color = "black") +
   ylim(0, 15) +
   ggtitle("Bromus")+ 
-  annotate("text", x = -4, y = 15, label = "C", size = 7)
+  annotate("text", x = -4.2, y = 15, label = "C", size = 7)
 y
 
 #--------------------------------------------------------------------
@@ -892,17 +892,17 @@ vis_v_all <-
 vis_spp_v <-
   ggpredict(mv,
             terms = c("green_index_scaled[all]", "treatment"),
-            type = "fe.zi", allow.new.levels=TRUE); plot(vis_spp_v)
+            type = "fe.zi" ); plot(vis_spp_v)
 
 
 # add color as column for plotting
 seed_vulpia$colortreat <- NA
-seed_vulpia$colortreat[seed_vulpia$treatment == "A"]<- "steelblue3"
-seed_vulpia$colortreat[seed_vulpia$treatment == "B"]<- "red4"
+seed_vulpia$colortreat[seed_vulpia$treatment == "A"]<- "red4"
+seed_vulpia$colortreat[seed_vulpia$treatment == "B"]<- "steelblue3"
 seed_vulpia$colortreat <- as.factor(seed_vulpia$colortreat)
 colortreatraw <- c(seed_vulpia$colortreat)
 length(vis_spp_v$x)  #746/2 # length of vis_spp_v
-colortreatpred <- c(rep("steelblue3", times = 373), rep("red4", times = 373))
+colortreatpred <- c(rep("red4", times = 373), rep("steelblue3", times = 373))
 
 z <- ggplot() +
       geom_jitter(
@@ -938,7 +938,7 @@ z <- ggplot() +
              color = "black") +
   ylim(0, 15) +
   ggtitle("Festuca") + 
-  annotate("text", x = -4, y = 15, label = "D", size = 7)
+  annotate("text", x = -4.2, y = 15, label = "D", size = 7)
 z
 
 
@@ -966,14 +966,14 @@ dev.off()
 
 # ZERO-INFLATION SUPP FIGURE
 
-colortreatpred <- c(rep("steelblue3", times = 372), rep("red4", times = 372))
+colortreatpred <- c(rep("red4", times = 372), rep("steelblue3", times = 372))
 zm <- ggplot() +
   geom_line(data = vis_m_all, aes(x = x, y = predicted, group = group, color = group),
             linewidth = 1,
             #color = colortreatpred, 
             show.legend = T
   ) +
-  scale_color_manual(values =c("steelblue3","red4"), 
+  scale_color_manual(values =c("red4","steelblue3"), 
                      labels = c("Without neighbors","With neighbors")) +
   geom_ribbon(
     data = vis_m_all,
@@ -995,10 +995,10 @@ zm <- ggplot() +
   labs(y = "Proportion of zeros", x = "") +
   ylim(0, 1) +
   ggtitle("Micropus") + 
-  annotate("text", x = -4, y = 1, label = "A", size = 7)
+  annotate("text", x = -4.2, y = 1, label = "A", size = 7)
 zm
 
-colortreatpred <- c(rep("steelblue3", times = 355), rep("red4", times = 355))
+colortreatpred <- c(rep("red4", times = 355), rep("steelblue3", times = 355))
 zp <- ggplot() +
   geom_line(data = vis_p_all, aes(x = x, y = predicted, group = group, color = group),
             linewidth = 1,
@@ -1023,10 +1023,10 @@ zp <- ggplot() +
   labs(y = "", x = "") +
   ylim(0, 1) +
   ggtitle("Plantago") + 
-  annotate("text", x = -4, y = 1, label = "B", size = 7)
+  annotate("text", x = -4.2, y = 1, label = "B", size = 7)
 zp
 
-colortreatpred <- c(rep("steelblue3", times = 351), rep("red4", times = 351))
+colortreatpred <- c(rep("red4", times = 351), rep("steelblue3", times = 351))
 zb <- ggplot() +
   geom_line(data = vis_b_all, aes(x = x, y = predicted, group = group, color = group),
             linewidth = 1,
@@ -1051,10 +1051,10 @@ zb <- ggplot() +
   labs(y = "", x = "") +
   ylim(0, 1) +
   ggtitle("Bromus") + 
-  annotate("text", x = -4, y = 1, label = "C", size = 7)
+  annotate("text", x = -4.2, y = 1, label = "C", size = 7)
 zb
 
-colortreatpred <- c(rep("steelblue3", times = 373), rep("red4", times = 373))
+colortreatpred <- c(rep("red4", times = 373), rep("steelblue3", times = 373))
 zv <- ggplot() +
   geom_line(data = vis_v_all, aes(x = x, y = predicted, group = group, color = group),
             linewidth = 1,
@@ -1079,7 +1079,7 @@ zv <- ggplot() +
   labs(y = "", x = "") +
   ylim(0, 1) +
   ggtitle("Festuca") + 
-  annotate("text", x = -4, y = 1, label = "D", size = 7)
+  annotate("text", x = -4.2, y = 1, label = "D", size = 7)
 zv
 
 #-----------------------------------------------------------------------------
@@ -1092,36 +1092,36 @@ zv
 vis_p <-
   ggpredict(mp,
             terms = c("green_index_scaled[all]", "treatment"),
-            type = "fe", allow.new.levels=TRUE)
+            type = "fe" )
 
 vis_m <-
   ggpredict(mm,
             terms = c("green_index_scaled[all]", "treatment"),
-            type = "fe", allow.new.levels=TRUE)
+            type = "fe" )
 
 vis_b <-
   ggpredict(mb,
             terms = c("green_index_scaled[all]", "treatment"),
-            type = "fe", allow.new.levels=TRUE)
+            type = "fe" )
 
 vis_v <-
   ggpredict(mv,
             terms = c("green_index_scaled[all]", "treatment"),
-            type = "fe", allow.new.levels=TRUE)
+            type = "fe" )
 
 
 # For plotting, set max of confidence interval to the maximum of our y-axis 
 vis_m$conf.low[vis_m$conf.low > 15] <- 15
 vis_m$conf.high[vis_m$conf.high > 15] <- 15
 
-colortreatpred <- c(rep("steelblue3", times = 372), rep("red4", times = 372))
+colortreatpred <- c(rep("red4", times = 372), rep("steelblue3", times = 372))
 fzm <- ggplot() +
   geom_line(data = vis_m, aes(x = x, y = predicted, group = group, color = group),
             linewidth = 1,
             #color = colortreatpred
             show.legend = T
   ) +
-  scale_color_manual(values =c("steelblue3","red4"), 
+  scale_color_manual(values =c("red4","steelblue3"), 
                      labels = c("Without neighbors","With neighbors")) +
   geom_ribbon(
     data = vis_m,
@@ -1145,10 +1145,10 @@ fzm <- ggplot() +
   geom_hline(yintercept = 1,
              linetype = "dashed",
              color = "black") +
-  annotate("text", x = -4, y = 15, label = "E", size = 7)
+  annotate("text", x = -4.2, y = 15, label = "E", size = 7)
 fzm
 
-colortreatpred <- c(rep("steelblue3", times = 355), rep("red4", times = 355))
+colortreatpred <- c(rep("red4", times = 355), rep("steelblue3", times = 355))
 fzp <- ggplot() +
   geom_line(data = vis_p, aes(x = x, y = predicted, group = group, color = group),
             linewidth = 1,
@@ -1175,10 +1175,10 @@ fzp <- ggplot() +
   geom_hline(yintercept = 1,
              linetype = "dashed",
              color = "black") +
-  annotate("text", x = -4, y = 15, label = "F", size = 7)
+  annotate("text", x = -4.2, y = 15, label = "F", size = 7)
 fzp
 
-colortreatpred <- c(rep("steelblue3", times = 351), rep("red4", times = 351))
+colortreatpred <- c(rep("red4", times = 351), rep("steelblue3", times = 351))
 fzb <- ggplot() +
   geom_line(data = vis_b, aes(x = x, y = predicted, group = group, color = group),
             linewidth = 1,
@@ -1205,10 +1205,10 @@ fzb <- ggplot() +
   geom_hline(yintercept = 1,
              linetype = "dashed",
              color = "black") +
-  annotate("text", x = -4, y = 15, label = "G", size = 7)
+  annotate("text", x = -4.2, y = 15, label = "G", size = 7)
 fzb
 
-colortreatpred <- c(rep("steelblue3", times = 373), rep("red4", times = 373))
+colortreatpred <- c(rep("red4", times = 373), rep("steelblue3", times = 373))
 fzv <- ggplot() +
   geom_line(data = vis_v, aes(x = x, y = predicted, group = group, color = group),
             linewidth = 1,
@@ -1235,7 +1235,7 @@ fzv <- ggplot() +
   geom_hline(yintercept = 1,
              linetype = "dashed",
              color = "black") +
-  annotate("text", x = -4, y = 15, label = "H", size = 7)
+  annotate("text", x = -4.2, y = 15, label = "H", size = 7)
 fzv
 
 

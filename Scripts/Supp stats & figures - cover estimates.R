@@ -157,7 +157,7 @@ supp_reduced <- ggplot() +
               alpha = 0.3) +
   theme_classic() +
   theme(text = element_text(size = 16)) +
-  labs(x = "Vegetation index (G-R)", y = "Reduced % cover for paired plots") +
+  labs(x = "Vegetation index (G-R)", y = "Reduced % cover for blocks") +
   geom_hline(yintercept = 0, linetype = 'dashed')
 supp_reduced
 

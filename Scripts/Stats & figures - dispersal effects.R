@@ -274,7 +274,7 @@ ggplot() +
   ) +
   theme_classic() +
   theme(legend.title = element_blank(),
-        legend.position = c(0.2,0.87),
+        legend.position = 'top',
         text = element_text(size = 16))  +
   facet_wrap(vars(treatment)) +
   labs(y = "Proportion of species", x = "Vegetation index (G-R)") 
@@ -291,10 +291,10 @@ dat_text <- data.frame(
  
 disp_full <- disp + geom_text(
   data    = dat_text,
-  mapping = aes(x = -4, y = 1, label = label),
+  mapping = aes(x = -4, y = .97, label = label),
   hjust   = -0.1,
   vjust   = -0.1,
-  size = 5)
+  size = 7)
 
 
 pdf(

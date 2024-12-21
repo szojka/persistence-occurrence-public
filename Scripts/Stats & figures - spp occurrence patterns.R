@@ -41,7 +41,7 @@ length(occ_plantago$grid)
 vis_occ_p <-
   ggpredict(mpo,
             terms = c("green_index_scaled[all]"),
-            type = "fe",allow.new.levels=TRUE)
+            type = "fe")
 
 f <- ggplot() +
   geom_jitter(
@@ -92,7 +92,7 @@ length(occ_micropus$grid)
 vis_occ_m <-
   ggpredict(mmo,
             terms = c("green_index_scaled[all]"),
-            type = "fe", allow.new.levels=TRUE)
+            type = "fe")
 
 e <- ggplot() +
   geom_jitter(
@@ -145,7 +145,7 @@ length(occ_bromus$grid)
 vis_occ_b <-
   ggpredict(mbo,
             terms = c("green_index_scaled[all]"),
-            type = "fe",allow.new.levels=TRUE)
+            type = "fe")
 
 g <- ggplot() +
   geom_jitter(
@@ -197,7 +197,7 @@ length(occ_vulpia$tag)
 vis_occ_v <-
   ggpredict(mvo,
             terms = c("green_index_scaled[all]"),
-            type = "fe",allow.new.levels=TRUE)
+            type = "fe")
 
 h <- ggplot() +
   geom_jitter(

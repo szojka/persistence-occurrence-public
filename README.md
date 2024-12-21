@@ -6,11 +6,11 @@
 
 # OVERVIEW:
 
-This project addressed how persistence and occurrence of four species change across a productivity gradient in Californian serpentine grasslands. These four species were analyzed independently in the population level results (Fig 1, S2, S3) and were aggregated for community levels results (Fig 2, 3, 4). We tested the effects of environmental filtering and biotic interactions by clearing vegetated materials out of a plot, while leaving an adjacent plot intact creating a paired design (n paired plots = 450). We additionally tested the effects of dispersal by comparing species' natural occupancy patterns to transplant persistence within both cleared and intact plots. The naming of scripts below indicate either which organismal level (i.e., spp or community) or biological process (e.g., dispersal) is being analyzed within the script.
+This project addressed how persistence and occurrence of four species change across a productivity gradient in Californian serpentine grasslands. These four species were analyzed independently in the population level results (Fig 2, S6) and were aggregated for community levels results (Fig 3, 4). We tested the effects of environmental filtering and biotic interactions by clearing vegetated materials out of a plot, while leaving an adjacent plot intact creating a paired design (n paired plots = 450). We additionally tested the effects of dispersal by comparing species' natural occupancy patterns to transplant persistence within both cleared and intact plots. The naming of scripts below indicate either which organismal level (i.e., spp or community) or biological process (e.g., dispersal) is being analyzed within the script.
 
 # HOW TO RUN PROJECT:
 
-All scripts that start with 'Stats & figures...' depend on 'Source fitness data.R'. All the 'Stats & figures...' scripts are independent, save 'Stats & figures - spp occurrence patterns.R' and 'Stats & figures - spp seed production.R', as the first script is necessary to create Figure 1 which is coded in the latter script. Specific descriptions of each script's function are found below.
+All scripts that start with 'Stats & figures...' depend on 'Source fitness data.R'. All the 'Stats & figures...' scripts are independent, save 'Stats & figures - spp occurrence patterns.R' and 'Stats & figures - spp seed production.R', as the first script is necessary to create Figure 2 which is coded in the latter script. Specific descriptions of each script's function are found below.
 
 # DESCRIPTION OF RELEVENT SCRIPTS:
 
@@ -24,7 +24,7 @@ Reading in and cleaning all the data necessary for figures. This needs to be sou
 
 ## Stats & figures - community models.R
 
-Used to create Figures 2, 3, Tables S2, S4, S5, and associated occurrence & persistence models. 
+Used to create Figures 3, Tables S3, S5, S6, and associated occurrence & persistence models. 
 
 ## Stats & figures - cover estimates.R
 
@@ -32,23 +32,23 @@ Used to create supplementary materials for Figures S3, S4, specifically to model
 
 ## Stats & figures - dispersal effects.R
 
-Used to create Figure 4, Table S6, and associated multinomial model.
+Used to create Figure 4, Table S7, and associated multinomial model.
 
 ## Stats & figures - spp occurrence patterns.R
 
-Used to create Figure 1 and associated binomial occurrence models for each species.
+Used to create Figure 2 and associated binomial occurrence models for each species.
 
 ## Stats & figures - spp seed production.R
 
-Used to create Figures 1, S2, Tables S1, S3 and associated species specific seed production, population growth, and zero-inflation models.
+Used to create Figures 2, S6, Tables S2, S4 and associated species specific seed production, population growth, and zero-inflation models.
 
 ## Stats & figures - pseudo sinks method 1.R
 
-Used to create Figure S6, looking at how abundance categories for each species predict seed production, as evidence for or against density dependence.
+Used to create Figure S7, looking at how abundance categories for each species predict seed production, as evidence for or against density dependence.
 
 ## Stats & figures - pseudo sinks method 2.R
 
-Used to create Figure S7, looking at how abundance categories for each species predict the proportion of sinks, potentially showing evidence for or against pseudo-sinks.
+Used to create Figure S8, looking at how abundance categories for each species predict the proportion of sinks, potentially showing evidence for or against pseudo-sinks.
 
 # DESCRIPTION OF DATA FILES:
 
