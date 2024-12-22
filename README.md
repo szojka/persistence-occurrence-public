@@ -1,5 +1,5 @@
 ################################################################################
-# CODE ASSOCIATED WITH MANUSCRIPT: "Sink populations decouple species occupancy and persistence across a productivity gradient"
+# CODE ASSOCIATED WITH MANUSCRIPT: "Species occupancy matches persistence in unproductive environments but is inflated by sink populations with increasing productivity"
 
 ## AUTHORS: Emilie F. Craig, Megan Szojka, Rachel M. Germain, Lauren G. Shoemaker 
 ################################################################################
